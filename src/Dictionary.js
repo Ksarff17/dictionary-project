@@ -1,11 +1,15 @@
 import React, {useState} from "react"
+import Results from "./Results"
 import axios from "axios"
 
 export default function Dictionary(){
-let [word, setWord] = useState(null)
+let [word, setWord] = useState("")
+let [results, setResults]= useState(null)
 
     function displayInfo(response){
         console.log(response.data)
+        setResults(response.data 
+        )
     }
 
     function updateWord(event){
@@ -25,6 +29,7 @@ let [word, setWord] = useState(null)
                 <input type="search" autoFocus={true} placeholder="Enter a word here" className="ms-3" onChange={updateWord}/>
                 <input type="submit" value="Search"className="btn btn-primary"/>
             </form>
+            <Results info = {results}/>
         </div>
     )
 }
