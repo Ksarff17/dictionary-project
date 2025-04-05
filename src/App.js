@@ -7,7 +7,7 @@ function App() {
       <div className="Dictionary">
 
       <header className="App-header mb-4">
-     Its a Dictionary
+     Dictionary
       </header>
       <Dictionary />
       </div>
