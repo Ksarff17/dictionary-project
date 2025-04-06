@@ -1,16 +1,21 @@
 import React, {useState} from "react"
 import Results from "./Results"
 import './Dictionary.css'
+
+
+
 import axios from "axios"
 
 export default function Dictionary(){
 let [word, setWord] = useState("")
 let [results, setResults]= useState(null)
 
-    function displayInfo(response){
-        console.log(response.data)
-        setResults(response.data 
-        )
+    function displayDictionaryInfo(response){
+        setResults(response.data )
+    }
+
+    function handlePexelsResponse(response){
+        console.log(response)
     }
 
     function updateWord(event){
@@ -21,7 +26,13 @@ let [results, setResults]= useState(null)
         event.preventDefault();
         let apiKey ="7o60e48082t80b65afac13511e68bed5"
         let url =`https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`
-        axios.get(url).then(displayInfo)
+        axios.get(url).then(displayDictionaryInfo)
+
+        const pexelsApiKey =('S5yNJGqOlPrCLUzq6CajQwhqwVVBY0TOT13Whjkix0LFxIikaDmr3FbJ');
+        let pexelsURL =`https://api.pexels.com/v1/search?query=${word}`;
+        let headers = {'Authorization': `Bearer ${pexelsApiKey}`};
+        axios.get(pexelsURL, {headers: headers }).then(handlePexelsResponse);
+
     }
     
     return(
