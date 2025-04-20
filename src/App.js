@@ -9,7 +9,7 @@ function App() {
       <header className="App-header mb-4">
      Dictionary
       </header>
-      <Dictionary />
+      <Dictionary defaultKeyWord="Dog" />
       </div>
     </div>
   );
