@@ -17,5 +17,12 @@
 }
 
 
+@media(max-width: 576px){
+    .App{
+      padding: 25px 25px;
+    };
+}
+
+
 
 

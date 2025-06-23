@@ -6,7 +6,7 @@ export default function Results(props){
     return(
         <div className="results">
             <section>
-            <h2>{props.info.word} </h2>
+            <h2 className="text-capitalize">{props.info.word} </h2>
             <h5><sm>{props.info.phonetic}</sm></h5>
             </section>
             {props.info.meanings.map(function(meaning,index){ 
